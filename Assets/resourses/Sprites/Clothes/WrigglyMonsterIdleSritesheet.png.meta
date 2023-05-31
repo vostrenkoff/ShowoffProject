@@ -1,0 +1,1047 @@
+fileFormatVersion: 2
+guid: fadf7f76eaa2a0e4ba00cc3c3d90dbdc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 4247
+        width: 639
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4510b6db6808974eb91a9f369908580
+      internalID: -1429482265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 4248
+        width: 639
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb379078fd5eb5547b04968cedbae64b
+      internalID: 1667018357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 4248
+        width: 639
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46cb3d4682fec047beb8a56e75aca5a
+      internalID: 907586916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 4248
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9a867696f3c8f49b9aeb2f4e78d333
+      internalID: -827627065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 4248
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356b55d6c38818d419a00092ad3018e3
+      internalID: -1162493348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 3519
+        y: 4248
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9f15fe42e64f245bf9640714a1ef6f
+      internalID: 1811285447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3547
+        width: 671
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778fa19aa9de79441b2bd7cfa7cf1730
+      internalID: 1093437062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 3547
+        width: 670
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e62a65b20f2ff48833a67bbd37ee51
+      internalID: -782485683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 3547
+        width: 672
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae671222fa18cdb479509965d13f776f
+      internalID: -1823224325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 3547
+        width: 670
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b39b29cdeaa3d642963c6c63bc72f9b
+      internalID: -308769389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 2823
+        y: 3547
+        width: 672
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f09eec827b0bd4e8913a9d73fc2125
+      internalID: 1372135573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 3524
+        y: 3547
+        width: 676
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e7785d2181c384faa3d6cd724b450f
+      internalID: 1963452608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 2848
+        width: 682
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2444802e95f8144880d1d993d520aca
+      internalID: 954355278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 2848
+        width: 680
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89de9721949f8e145a21c018ba60c00d
+      internalID: 1182517139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 2848
+        width: 682
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89df57fec0c410f46b82bdc939f8a152
+      internalID: -1196932359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 2110
+        y: 2846
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5090633cee2003948a76f7efee69b748
+      internalID: 1708408737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 2809
+        y: 2846
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109921422a24afa44adb0f557f21e9e7
+      internalID: -1572820500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 3510
+        y: 2846
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabb91153d92bf74594c503ce45dfe8d
+      internalID: -1098918032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2150
+        width: 649
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8ac7f7984024245b269fd1640e7719
+      internalID: 1230698981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 2147
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829f37c66eff8cb489730d1dcb81e07a
+      internalID: 170600074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 2147
+        width: 690
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a74d55ceb18b8e48bba79af40c61e3e
+      internalID: 896919202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 2147
+        width: 638
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0473cd74758e3734a8dd876ec4529ce1
+      internalID: -1764455839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 2823
+        y: 2152
+        width: 639
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f54fc8539f2714382d62a236c29b0f
+      internalID: 986035344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3522
+        y: 2147
+        width: 639
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce97f1e72235cf468fb3f8d42012eba
+      internalID: -1174877420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1449
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b165479dd524d64caa6924b3f62bd8e
+      internalID: 2076028259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1449
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068a1dcd748a0c44a89fa3063de9bb92
+      internalID: 475602158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1449
+        width: 653
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600aee0dedc3ad64fb7dba396b65b5af
+      internalID: -1499383019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1449
+        width: 670
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 775f2a54eb0de9b4a9c24b02284e5d5c
+      internalID: -1609937747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2799
+        y: 1449
+        width: 672
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe892766ea313b4caa4eac0470581b2
+      internalID: 1227305162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1449
+        width: 670
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf83e6ecf02e6b45b6949e5916fc27f
+      internalID: -1129208968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 748
+        width: 672
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c6b0eb791b5214fbb98ffde7fe7180
+      internalID: 402543400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 748
+        width: 670
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5ea54a167db784192feda4cc5e7da0
+      internalID: 1202614978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 748
+        width: 672
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075e026b8105c884493c7737bd05a5b9
+      internalID: 737652919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 748
+        width: 680
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b05dd6f9812e742b4471d5b70630fa
+      internalID: 938249591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 2813
+        y: 748
+        width: 682
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653a8179f96fc0d4eb84e2930da85fbc
+      internalID: 438715143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 3514
+        y: 748
+        width: 680
+        height: 531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f2e795910e617429c5e02a40b301bc
+      internalID: -698074297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 47
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750a4315fe4ffe74d94f20e7cefd8e53
+      internalID: 454829561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 47
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61489e282e09dc4b8507dc7263b4fe3
+      internalID: 1337265505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 47
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b207b87c1ef4b946b9025ec3fb689ab
+      internalID: 700834668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 2098
+        y: 47
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e137b8c8f11c7746a9c8258f0cffcce
+      internalID: 1947851870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 47
+        width: 689
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a30edf4a975f84ea7087d2e11b9b05
+      internalID: 669054167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WrigglyMonsterIdleSritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 3498
+        y: 47
+        width: 686
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2deceac01167e334d8129bcef823853c
+      internalID: 980512069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WrigglyMonsterIdleSritesheet_10: 1372135573
+      WrigglyMonsterIdleSritesheet_7: -782485683
+      WrigglyMonsterIdleSritesheet_38: 700834668
+      WrigglyMonsterIdleSritesheet_4: -1162493348
+      WrigglyMonsterIdleSritesheet_40: 669054167
+      WrigglyMonsterIdleSritesheet_23: -1174877420
+      WrigglyMonsterIdleSritesheet_2: 907586916
+      WrigglyMonsterIdleSritesheet_14: -1196932359
+      WrigglyMonsterIdleSritesheet_11: 1963452608
+      WrigglyMonsterIdleSritesheet_1: 1667018357
+      WrigglyMonsterIdleSritesheet_9: -308769389
+      WrigglyMonsterIdleSritesheet_18: 1230698981
+      WrigglyMonsterIdleSritesheet_24: 2076028259
+      WrigglyMonsterIdleSritesheet_20: 896919202
+      WrigglyMonsterIdleSritesheet_6: 1093437062
+      WrigglyMonsterIdleSritesheet_22: 986035344
+      WrigglyMonsterIdleSritesheet_26: -1499383019
+      WrigglyMonsterIdleSritesheet_8: -1823224325
+      WrigglyMonsterIdleSritesheet_27: -1609937747
+      WrigglyMonsterIdleSritesheet_19: 170600074
+      WrigglyMonsterIdleSritesheet_29: -1129208968
+      WrigglyMonsterIdleSritesheet_17: -1098918032
+      WrigglyMonsterIdleSritesheet_3: -827627065
+      WrigglyMonsterIdleSritesheet_21: -1764455839
+      WrigglyMonsterIdleSritesheet_13: 1182517139
+      WrigglyMonsterIdleSritesheet_30: 402543400
+      WrigglyMonsterIdleSritesheet_31: 1202614978
+      WrigglyMonsterIdleSritesheet_35: -698074297
+      WrigglyMonsterIdleSritesheet_37: 1337265505
+      WrigglyMonsterIdleSritesheet_28: 1227305162
+      WrigglyMonsterIdleSritesheet_5: 1811285447
+      WrigglyMonsterIdleSritesheet_36: 454829561
+      WrigglyMonsterIdleSritesheet_25: 475602158
+      WrigglyMonsterIdleSritesheet_0: -1429482265
+      WrigglyMonsterIdleSritesheet_32: 737652919
+      WrigglyMonsterIdleSritesheet_16: -1572820500
+      WrigglyMonsterIdleSritesheet_15: 1708408737
+      WrigglyMonsterIdleSritesheet_34: 438715143
+      WrigglyMonsterIdleSritesheet_41: 980512069
+      WrigglyMonsterIdleSritesheet_39: 1947851870
+      WrigglyMonsterIdleSritesheet_33: 938249591
+      WrigglyMonsterIdleSritesheet_12: 954355278
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

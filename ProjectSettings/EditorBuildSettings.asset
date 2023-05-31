@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartGameScreen.unity
+    guid: 17a761ab6307f0b4e999eac273100f0a
+  - enabled: 1
+    path: Assets/Scenes/Roar1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BonusLevel.unity
+    guid: b931345a2f8126044bfab2508d2abeb4
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: d2b626f303120f34b85c40e89df1ce5a
+  - enabled: 1
+    path: Assets/Scenes/Clothes.unity
+    guid: 646fd26420e55544fa3229365ce1ba81
+  m_configObjects: {}

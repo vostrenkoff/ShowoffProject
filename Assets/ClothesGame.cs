@@ -210,7 +210,7 @@ public class ClothesGame : MonoBehaviour
             if (live2 != null) live2.SetActive(false);
             if (live3 != null) live3.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("livesCount") == 0)
+        if (PlayerPrefs.GetInt("livesCount") <= 0)
         {
             if (live1 != null) live1.SetActive(false);
             if (live2 != null) live2.SetActive(false);

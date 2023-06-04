@@ -10,6 +10,10 @@ TagManager:
   - BootsPlaceholder
   - TopPlaceholder
   - HatPlaceholder
+  - Building
+  - BuildingSmall
+  - BuildingMedium
+  - BuildingBig
   layers:
   - Default
   - TransparentFX

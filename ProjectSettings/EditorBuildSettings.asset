@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Clothes.unity
     guid: 646fd26420e55544fa3229365ce1ba81
+  - enabled: 1
+    path: Assets/Scenes/CityDestroyer.unity
+    guid: 9011f3f46cb9397488ec19e8cef1c7f1
   m_configObjects: {}

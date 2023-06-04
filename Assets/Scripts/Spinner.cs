@@ -34,7 +34,7 @@ public class Spinner : MonoBehaviour
     }
     public void ChosenGame()
     {
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = Random.Range(0, 4);
         if (randomNumber == 0)
         {
             SceneManager.LoadScene("Roar1");
@@ -46,6 +46,10 @@ public class Spinner : MonoBehaviour
         else if (randomNumber == 2)
         {
             SceneManager.LoadScene("BonusLevel");
+        }
+        else if (randomNumber == 3)
+        {
+            SceneManager.LoadScene("CityDestroyer");
         }
 
 

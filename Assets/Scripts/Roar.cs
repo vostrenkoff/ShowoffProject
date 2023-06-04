@@ -16,6 +16,7 @@ public class Roar : MonoBehaviour
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
     public GameObject SpinnerPref;
+    public Animator Flower;
     public bool goPlayTimer = false;
     public bool won = false;
     public bool lost = false;
@@ -101,13 +102,13 @@ public class Roar : MonoBehaviour
     private IEnumerator listenTimeout()
     {
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f);
         if (won  || lost)
         {
             yield break;
         }
 
-        listenandsay.GetComponent<TMPro.TextMeshProUGUI>().text = "Repeat!";
+        //listenandsay.GetComponent<TMPro.TextMeshProUGUI>().text = "Repeat!";
         goPlayTimer = true;
 
         yield break;
@@ -118,9 +119,9 @@ public class Roar : MonoBehaviour
         listenandsay.GetComponent<TMPro.TextMeshProUGUI>().text = "Well done.";
         won = true;
         tooquiet.SetActive(false);
+        Flower.SetBool("wokeup", true);
 
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         NextRandomRound();
         yield break;
     }
@@ -160,7 +161,7 @@ public class Roar : MonoBehaviour
             if (live2 != null) live2.SetActive(false);
             if (live3 != null) live3.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("livesCount") == 0)
+        if (PlayerPrefs.GetInt("livesCount") <= 0)
         {
             if (live1 != null) live1.SetActive(false);
             if (live2 != null) live2.SetActive(false);

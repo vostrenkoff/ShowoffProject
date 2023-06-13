@@ -14,6 +14,13 @@ TagManager:
   - BuildingSmall
   - BuildingMedium
   - BuildingBig
+  - Circle
+  - X
+  - Y
+  - O
+  - Life1
+  - Life2
+  - Life3
   layers:
   - Default
   - TransparentFX

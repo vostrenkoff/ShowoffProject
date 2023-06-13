@@ -24,6 +24,11 @@ public class BonusLevelScript : MonoBehaviour
     public int calculatedScore=0;
     public GameObject score;
     public GameObject totalscore;
+
+    private float getReadyDuration = 8f;
+    private float currentGetReadyDuration; // The current duration elapsed for get ready bar
+    private float initialGetReadyFillAmount = 1; // The initial fillAmount of getreadyBar
+
     private void Start()
     {
         totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
@@ -35,16 +40,25 @@ public class BonusLevelScript : MonoBehaviour
         //UI
         if (getreadyBar.fillAmount > 0)
         {
-            getreadyBar.fillAmount -= 0.002f;
+            float deltaAmount = (initialGetReadyFillAmount / getReadyDuration) * Time.deltaTime;
+            getreadyBar.fillAmount -= deltaAmount;
+            getreadyBar.fillAmount = Mathf.Clamp(getreadyBar.fillAmount, 0f, initialGetReadyFillAmount);
+            currentGetReadyDuration += Time.deltaTime;
+
+            if (currentGetReadyDuration >= getReadyDuration)
+            {
+                getreadyBar.fillAmount = 0;
+                GetReadyScreen.SetActive(false);
+                StartCoroutine(timeout());
+            }
         }
         else if (!won)
         {
             GetReadyScreen.SetActive(false);
-            //PlayScreen.SetActive(true);
             StartCoroutine(timeout());
         }
 
-        if(PlayerPosition.transform.position.y < -7 && !spinned)
+        if (PlayerPosition.transform.position.y < -7 && !spinned)
         {
             spinned = true;
             StartCoroutine(winScreenTimeout());

@@ -88,5 +88,5 @@ public class VoiceController : MonoBehaviour
         //transform.position = new Vector3(-10, -3, 0);
         rb.velocity = Vector3.zero;
     }
-
+    
 }

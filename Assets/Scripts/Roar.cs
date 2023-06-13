@@ -15,12 +15,16 @@ public class Roar : MonoBehaviour
     public GameObject currentScore;
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
+    public GameObject GameOverScreen;
     public GameObject SpinnerPref;
+    public GameObject gameoverscore;
+    public GameObject gameovermessage;
     public Animator Flower;
     public bool goPlayTimer = false;
     public bool won = false;
     public bool lost = false;
     public bool spinned = false;
+    private int calculatedScore = 200;
 
     //loudnessControl
     public AudioSource source;
@@ -31,6 +35,15 @@ public class Roar : MonoBehaviour
     public GameObject tooquiet;
     public float loudnessSensibility = 100;
     float loudnessRecord = 0;
+
+    private float duration = 10f;
+    private float currentDuration; // The current duration elapsed
+    private float initialFillAmount = 1; // The initial fillAmount of timeleftBar
+
+    private float getReadyDuration = 5f;
+    private float currentGetReadyDuration; // The current duration elapsed for get ready bar
+    private float initialGetReadyFillAmount = 1; // The initial fillAmount of getreadyBar
+
     private void Start()
     {
         UpdateHighscore(0);
@@ -39,23 +52,51 @@ public class Roar : MonoBehaviour
     void Update()
     {
         //UI
-        if(getreadyBar.fillAmount > 0)
+        if (getreadyBar.fillAmount > 0)
         {
-            getreadyBar.fillAmount -= 0.002f;
+            float deltaAmount = (initialGetReadyFillAmount / getReadyDuration) * Time.deltaTime;
+            getreadyBar.fillAmount -= deltaAmount;
+            getreadyBar.fillAmount = Mathf.Clamp(getreadyBar.fillAmount, 0f, initialGetReadyFillAmount);
+            currentGetReadyDuration += Time.deltaTime;
+            Debug.Log("currentGetReadyDuration " + currentGetReadyDuration + "  getReadyDuration " + getReadyDuration);
+            if (currentGetReadyDuration >= getReadyDuration)
+            {
+                Debug.Log("IFFFFFcurrentGetReadyDuration " + currentGetReadyDuration + "  getReadyDuration " + getReadyDuration);
+                getreadyBar.fillAmount = 0;
+                GetReadyScreen.SetActive(false);
+                StartCoroutine(listenTimeout());
+            }
         }
-        else if(!won && !lost)
+        else if (!won && !lost)
         {
             GetReadyScreen.SetActive(false);
             PlayScreen.SetActive(true);
-            
+
             StartCoroutine(listenTimeout());
         }
         if (timeleftBar.fillAmount > 0 && goPlayTimer)
         {
-            if (!won && !lost)
-                timeleftBar.fillAmount -= 0.0008f;
+            if (!won)
+            {
+                float deltaAmount = (initialFillAmount / duration) * Time.deltaTime;
+                timeleftBar.fillAmount -= deltaAmount;
+                timeleftBar.fillAmount = Mathf.Clamp(timeleftBar.fillAmount, 0f, initialFillAmount);
+                currentDuration += Time.deltaTime;
+
+                if (currentDuration >= duration)
+                {
+                    timeleftBar.fillAmount = 0;
+                    if (timeleftBar.fillAmount <= 0 && !won && !lost)
+                    {
+                        lost = true;
+                        StartCoroutine(gameoverScreenTimeout(false));
+                    }
+                }
+            }
             else
+            {
                 timeleftBar.fillAmount = 1;
+            }
         }
 
 
@@ -73,7 +114,7 @@ public class Roar : MonoBehaviour
         if (timeleftBar.fillAmount <= 0 && !won && !lost)
         {
             lost= true;
-            StartCoroutine(loseScreenTimeout());
+            StartCoroutine(gameoverScreenTimeout(false));
         }
         if (loudnessRecord >= 0 && !won && !lost)
         {
@@ -88,7 +129,7 @@ public class Roar : MonoBehaviour
         {
             spinned= true;
             won = true;
-            StartCoroutine(winScreenTimeout());
+            StartCoroutine(gameoverScreenTimeout(true));
         }
         
         volumelevel.GetComponent<Image>().fillAmount = loudnessRecord;
@@ -113,59 +154,81 @@ public class Roar : MonoBehaviour
 
         yield break;
     }
-    private IEnumerator winScreenTimeout()
+    /*private IEnumerator winScreenTimeout()
     {
-        UpdateHighscore(100);
-        listenandsay.GetComponent<TMPro.TextMeshProUGUI>().text = "Well done.";
-        won = true;
-        tooquiet.SetActive(false);
-        Flower.SetBool("wokeup", true);
 
-        yield return new WaitForSeconds(5f);
+        PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + 100);
+        totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+        won = true;
+        yield return new WaitForSeconds(2f);
         NextRandomRound();
+
         yield break;
-    }
-    private IEnumerator loseScreenTimeout()
+    }*/
+    /*private IEnumerator loseScreenTimeout()
     {
         ReduceHealth();
         UpdateHighscore(0);
-        listenandsay.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time.";
-        tooquiet.SetActive(false);
-
-
         yield return new WaitForSeconds(2f);
         NextRandomRound();
+        yield break;
+    }*/
+    private IEnumerator gameoverScreenTimeout(bool _won)
+    {
+        GameOverScreen.SetActive(true);
+        HealthManager();
+        if (_won)
+        {
+            won = true;
+            PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
+            //score.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Level completed +" + calculatedScore;
+        }
+        else
+        {
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time";
+
+            UpdateHighscore(0);
+        }
+        gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+        UpdateHighscore(0);
+        yield return new WaitForSeconds(4f);
+        if (!_won)
+            ReduceHealth();
+        else
+            NextRandomRound();
         yield break;
     }
     void HealthManager()
     {
-        GameObject live1 = GameObject.Find("Life1");
-        GameObject live2 = GameObject.Find("Life2");
-        GameObject live3 = GameObject.Find("Life3");
+        GameObject[] live1 = GameObject.FindGameObjectsWithTag("Life1");
+        GameObject[] live2 = GameObject.FindGameObjectsWithTag("Life2");
+        GameObject[] live3 = GameObject.FindGameObjectsWithTag("Life3");
 
         if (PlayerPrefs.GetInt("livesCount") == 3)
         {
-            if (live1 != null) live1.SetActive(true);
-            if (live2 != null) live2.SetActive(true);
-            if (live3 != null) live3.SetActive(true);
+            foreach (GameObject go in live1) { go.SetActive(true); }
+            foreach (GameObject go in live2) { go.SetActive(true); }
+            foreach (GameObject go in live3) { go.SetActive(true); }
         }
         if (PlayerPrefs.GetInt("livesCount") == 2)
         {
-            if (live1 != null) live1.SetActive(true);
-            if (live2 != null) live2.SetActive(true);
-            if (live3 != null) live3.SetActive(false);
+            foreach (GameObject go in live1) { go.SetActive(true); }
+            foreach (GameObject go in live2) { go.SetActive(true); }
+            foreach (GameObject go in live3) { go.SetActive(false); }
         }
         if (PlayerPrefs.GetInt("livesCount") == 1)
         {
-            if (live1 != null) live1.SetActive(true);
-            if (live2 != null) live2.SetActive(false);
-            if (live3 != null) live3.SetActive(false);
+            foreach (GameObject go in live1) { go.SetActive(true); }
+            foreach (GameObject go in live2) { go.SetActive(false); }
+            foreach (GameObject go in live3) { go.SetActive(false); }
         }
         if (PlayerPrefs.GetInt("livesCount") <= 0)
         {
-            if (live1 != null) live1.SetActive(false);
-            if (live2 != null) live2.SetActive(false);
-            if (live3 != null) live3.SetActive(false);
+
+            foreach (GameObject go in live1) { go.SetActive(false); }
+            foreach (GameObject go in live2) { go.SetActive(false); }
+            foreach (GameObject go in live3) { go.SetActive(false); }
         }
     }
 

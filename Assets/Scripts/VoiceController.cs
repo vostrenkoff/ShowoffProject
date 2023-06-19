@@ -16,7 +16,7 @@ public class VoiceController : MonoBehaviour
     public float loudnessSensibility = 100;
     public float Walkthreshold =  0.1f;
     public float jumpthreshold =  0.1f;
-
+    public bool isJumped = false;
 
     public float totalTime = 5.0f; // Total time for the countdown
     private float timeLeft; // Time left in the countdown
@@ -42,16 +42,20 @@ public class VoiceController : MonoBehaviour
             rb.AddForce(transform.right * movementSpeed, ForceMode2D.Impulse);
             
         }
-        if(loudness > jumpthreshold)
+        if(loudness > jumpthreshold && !isJumped)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            StartCoroutine(nojumptimeout());
         }
         if(transform.position.y < -10 || transform.position.y > 25 )
         {
             Respawn();
         }
-
-        timeLeft -= Time.deltaTime;
+        if(rb.velocity.x <0.1f && rb.velocity.y > -0.1f && rb.velocity.y < 0.1f)
+        {
+            isJumped = false;
+        }
+        /*timeLeft -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         int seconds = Mathf.FloorToInt(timeLeft % 60);
         //timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -59,7 +63,7 @@ public class VoiceController : MonoBehaviour
         if (timeLeft <= 0)
         {
             Respawn();
-        }
+        }*/
 
         //Animations
         if(rb.velocity.y > 0)
@@ -88,5 +92,16 @@ public class VoiceController : MonoBehaviour
         //transform.position = new Vector3(-10, -3, 0);
         rb.velocity = Vector3.zero;
     }
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isJumped = false;
+    }
+    private IEnumerator nojumptimeout()
+    {
+        yield return new WaitForSeconds(2f);
+        isJumped = true;
+
+        yield break;
+    }
+
 }

@@ -14,11 +14,15 @@ public class BonusLevelScript : MonoBehaviour
     public GameObject PlayerPosition;
     public GameObject GetReadyScreen;
     public GameObject SpinnerPref;
+    public GameObject GameOverScreen;
+    public GameObject gameovermessage;
+    public GameObject gameoverscore;
     
     public GameObject playerpref;
     public bool goPlayTimer = false;
     public bool won = false;
     public bool spinned = false;
+    
 
     //score
     public int calculatedScore=0;
@@ -61,7 +65,7 @@ public class BonusLevelScript : MonoBehaviour
         if (PlayerPosition.transform.position.y < -7 && !spinned)
         {
             spinned = true;
-            StartCoroutine(winScreenTimeout());
+            StartCoroutine(gameoverScreenTimeout(true));
         }
         /*if (timeleftBar.fillAmount > 0 && goPlayTimer)
         {
@@ -104,7 +108,7 @@ public class BonusLevelScript : MonoBehaviour
 
         yield break;
     }
-    private IEnumerator winScreenTimeout()
+    /*private IEnumerator winScreenTimeout()
     {
         
         PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
@@ -115,5 +119,23 @@ public class BonusLevelScript : MonoBehaviour
         NextRandomRound();
 
         yield break;
+    }*/
+    private IEnumerator gameoverScreenTimeout(bool _won)
+    {
+        GameOverScreen.SetActive(true);
+        if (_won)
+        {
+            won = true;
+            PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
+            totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Level completed +" + calculatedScore;
+        }
+        gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+        yield return new WaitForSeconds(3f);
+        
+
+        NextRandomRound();
+        yield break;
     }
+
 }

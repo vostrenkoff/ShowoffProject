@@ -50,6 +50,8 @@ public class DefendScript : MonoBehaviour
 
     private void Start()
     {
+        creationInterval = creationInterval * PlayerPrefs.GetFloat("multiplier");
+        Debug.LogError("Duration " + creationInterval);
         HealthManager();
         totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
     }
@@ -260,6 +262,7 @@ public class DefendScript : MonoBehaviour
         {
             won = true;
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
+            PlayerPrefs.SetFloat("multiplier", PlayerPrefs.GetFloat("multiplier") - 0.05f);
             totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
             gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Level completed +" + calculatedScore;
         }
@@ -271,25 +274,39 @@ public class DefendScript : MonoBehaviour
         }
         gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
         UpdateHighscore(0);
-        yield return new WaitForSeconds(4f);
-        if(!_won)
+        yield return new WaitForSeconds(3f);
+        if (!_won)
+        {
             ReduceHealth();
-        else
-            NextRandomRound();
+            yield return new WaitForSeconds(3f);
+            if (PlayerPrefs.GetInt("livesCount") <= 0)
+            {
+                GameOver();
+            }
+        }
+
+        NextRandomRound();
         yield break;
     }
     void ReduceHealth()
     {
+
         PlayerPrefs.SetInt("livesCount", PlayerPrefs.GetInt("livesCount") - 1);
-        //HealthManager();
-        if (PlayerPrefs.GetInt("livesCount") <= 0)
+
+        if (PlayerPrefs.GetInt("livesCount") == 2)
         {
-            GameOver();
+            GameObject[] live3 = GameObject.FindGameObjectsWithTag("Life3");
+            foreach (GameObject go in live3) { go.GetComponent<Animator>().SetTrigger("explodeHeart"); }
+        }
+        if (PlayerPrefs.GetInt("livesCount") == 1)
+        {
+            GameObject[] live2 = GameObject.FindGameObjectsWithTag("Life2");
+            foreach (GameObject go in live2) { go.GetComponent<Animator>().SetTrigger("explodeHeart"); }
         }
     }
     void UpdateHighscore(int scoreAdded)
     {
-        score.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore") + scoreAdded;
+        //score.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore") + scoreAdded;
     }
     void GameOver()
     {

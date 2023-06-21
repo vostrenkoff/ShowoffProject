@@ -48,7 +48,7 @@ public class ClothesGame : MonoBehaviour
     public GameObject score;
     public GameObject totalscore;
 
-    private float duration = 10;
+    private float duration = 100;
     private float currentDuration; // The current duration elapsed
     private float initialFillAmount = 1; // The initial fillAmount of timeleftBar
 

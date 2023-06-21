@@ -18,7 +18,6 @@ public class Dreaggable : MonoBehaviour
     private void OnMouseDown()
     {
         isMoving = true;
-        Debug.Log("ban");
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
     }
     private void OnMouseUp()
@@ -32,7 +31,6 @@ public class Dreaggable : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("CollisionTrigger");
         if(!isMoving)
         {
             if (collision.gameObject.CompareTag("BootsPlaceholder") && gameObject.CompareTag("Boots"))

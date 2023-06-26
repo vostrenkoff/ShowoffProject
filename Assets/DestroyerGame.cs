@@ -14,9 +14,12 @@ public class DestroyerGame : MonoBehaviour
     public Image getreadyBar;
     public Image timeleftBar;
     public GameObject listenandsay;
+    public GameObject gj;
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
     public GameObject GameOverScreen;
+    public GameObject WinSound;
+    public GameObject LooseSound;
     public GameObject SpinnerPref;
     public GameObject gameoverscore;
     public GameObject gameovermessage;
@@ -154,6 +157,7 @@ public class DestroyerGame : MonoBehaviour
         HealthManager();
         if (_won)
         {
+            WinSound.SetActive(true);
             won = true;
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
             PlayerPrefs.SetFloat("multiplier", PlayerPrefs.GetFloat("multiplier") - 0.05f);
@@ -162,8 +166,9 @@ public class DestroyerGame : MonoBehaviour
         }
         else
         {
-            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time";
-
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Volgende keer beter";
+            gj.GetComponent<TMPro.TextMeshProUGUI>().text = "jij hebt verloren";
+            LooseSound.SetActive(true);
             UpdateHighscore(0);
         }
         gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");

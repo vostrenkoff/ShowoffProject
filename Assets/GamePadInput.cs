@@ -244,6 +244,7 @@ public class GamePadInput : MonoBehaviour
                     manager.won = true;
                     Debug.LogError("win");
                 }
+                GetComponent<AudioSource>().Play();
             }
         }
     }

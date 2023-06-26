@@ -15,6 +15,9 @@ public class BonusLevelScript : MonoBehaviour
     public GameObject GetReadyScreen;
     public GameObject SpinnerPref;
     public GameObject GameOverScreen;
+    public GameObject WinSound;
+    public GameObject LooseSound;
+
     public GameObject gameovermessage;
     public GameObject gameoverscore;
     
@@ -125,6 +128,7 @@ public class BonusLevelScript : MonoBehaviour
         GameOverScreen.SetActive(true);
         if (_won)
         {
+            WinSound.SetActive(true);
             won = true;
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
             totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");

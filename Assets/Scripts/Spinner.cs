@@ -39,31 +39,33 @@ public class Spinner : MonoBehaviour
         genSpeed = Random.Range(2.000f, 5.000f);
         subSpeed = Random.Range(0.003f, 0.009f);
         isSpinning = true;
-        
+        GetComponent<AudioSource>().Play();
+        Debug.Log(PlayerPrefs.GetInt("highscore") + "     " + PlayerPrefs.GetInt("bonus1active") + "     " + PlayerPrefs.GetInt("bonus2active") + "     " + PlayerPrefs.GetInt("bonus3active") + "     " + PlayerPrefs.GetInt("bonus4active") + "     " + PlayerPrefs.GetInt("bonus5active"));
     }
     public void ChosenGame()
     {
-        if(PlayerPrefs.GetFloat("highscore") >=400&& PlayerPrefs.GetInt("bonus1active") < 1)
+        
+        if(PlayerPrefs.GetInt("highscore") >=400 && PlayerPrefs.GetInt("bonus1active") == 0)
         {
             PlayerPrefs.SetInt("bonus1active", 1);
             SceneManager.LoadScene("BonusLevel");
         }
-        if (PlayerPrefs.GetFloat("highscore") >= 800&& PlayerPrefs.GetInt("bonus2active") < 1)
+        else if (PlayerPrefs.GetInt("highscore") >= 1000&& PlayerPrefs.GetInt("bonus2active") == 0)
         {
             PlayerPrefs.SetInt("bonus2active", 1);
             SceneManager.LoadScene("BonusLevel");
         }
-        if (PlayerPrefs.GetFloat("highscore") >= 1500&& PlayerPrefs.GetInt("bonus3active") < 1)
+        else if(PlayerPrefs.GetInt("highscore") >= 1700&& PlayerPrefs.GetInt("bonus3active") == 0)
         {
             PlayerPrefs.SetInt("bonus3active", 1);
             SceneManager.LoadScene("BonusLevel");
         }
-        if (PlayerPrefs.GetFloat("highscore") >= 2000 && PlayerPrefs.GetInt("bonus4active") < 1)
+        else if(PlayerPrefs.GetInt("highscore") >= 2400 && PlayerPrefs.GetInt("bonus4active") == 0)
         {
             PlayerPrefs.SetInt("bonus4active", 1);
             SceneManager.LoadScene("BonusLevel");
         }
-        if (PlayerPrefs.GetFloat("highscore") >= 2400 && PlayerPrefs.GetInt("bonus5active") < 1)
+        else if(PlayerPrefs.GetInt("highscore") >= 3000 && PlayerPrefs.GetInt("bonus5active") == 0)
         {
             PlayerPrefs.SetInt("bonus5active", 1);
             SceneManager.LoadScene("BonusLevel");

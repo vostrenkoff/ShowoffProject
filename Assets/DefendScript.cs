@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,12 +19,16 @@ public class DefendScript : MonoBehaviour
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
     public GameObject GameOverScreen;
+    public GameObject gj;
+    public GameObject WinSound;
+    public GameObject LooseSound;
     public GameObject SpinnerPref;
     public bool goPlayTimer = false;
     public bool won = false;
     public bool lost = false;
     public bool spinned = false;
-
+    public AudioClip popSound;
+    private Gamepad dualSenseGamepad;
     //score
     private int calculatedScore = 200;
     public GameObject score;
@@ -51,15 +57,31 @@ public class DefendScript : MonoBehaviour
     private void Start()
     {
         creationInterval = creationInterval * PlayerPrefs.GetFloat("multiplier");
-        Debug.LogError("Duration " + creationInterval);
+        UnityEngine.Debug.LogError("Duration " + creationInterval);
         HealthManager();
         totalscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
+        foreach (var gamepad in Gamepad.all)
+        {
+            if (gamepad.name.Contains("DualSense"))
+            {
+                dualSenseGamepad = gamepad;
+                break;
+            }
+        }
+
+        if (dualSenseGamepad == null)
+        {
+            UnityEngine.Debug.LogError("DualSense gamepad not found!");
+        }
     }
     void Update()
     {
+        if (dualSenseGamepad == null)
+            return;
+
         BugSpawner();
 
-        if (Input.GetKeyUp(KeyCode.X))
+        if (Input.GetKeyUp(KeyCode.X) || dualSenseGamepad.buttonSouth.wasPressedThisFrame)
         {
             if (currentBugsX.Count > 0)
             {
@@ -67,6 +89,7 @@ public class DefendScript : MonoBehaviour
                 {
                     Destroy(currentBugsX[0]);
                     currentBugsX.RemoveAt(0);
+                    GetComponent<AudioSource>().PlayOneShot(popSound);
                 }
                 else
                 {
@@ -75,7 +98,7 @@ public class DefendScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.O))
+        if (Input.GetKeyUp(KeyCode.O)||dualSenseGamepad.buttonEast.wasPressedThisFrame)
         {
             if (currentBugsO.Count > 0)
             {
@@ -83,6 +106,7 @@ public class DefendScript : MonoBehaviour
                 {
                     Destroy(currentBugsO[0]);
                     currentBugsO.RemoveAt(0);
+                    GetComponent<AudioSource>().PlayOneShot(popSound);
                 }
                 else
                 {
@@ -91,7 +115,7 @@ public class DefendScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Y))
+        if (Input.GetKeyUp(KeyCode.Y) || dualSenseGamepad.buttonNorth.wasPressedThisFrame)
         {
             if (currentBugsY.Count > 0)
             {
@@ -99,6 +123,7 @@ public class DefendScript : MonoBehaviour
                 {
                     Destroy(currentBugsY[0]);
                     currentBugsY.RemoveAt(0);
+                    GetComponent<AudioSource>().PlayOneShot(popSound);
                 }
                 else
                 {
@@ -222,7 +247,7 @@ public class DefendScript : MonoBehaviour
 
     public void NextRandomRound()
     {
-        Debug.Log("spinner started");
+        UnityEngine.Debug.Log("spinner started");
         SpinnerPref.GetComponent<SpinnerController>().startSpinning();
     }
     private IEnumerator timeout()
@@ -260,6 +285,7 @@ public class DefendScript : MonoBehaviour
         HealthManager();
         if (_won)
         {
+            WinSound.SetActive(true);
             won = true;
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
             PlayerPrefs.SetFloat("multiplier", PlayerPrefs.GetFloat("multiplier") - 0.05f);
@@ -268,8 +294,9 @@ public class DefendScript : MonoBehaviour
         }
         else
         {
-            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time";
-            
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Volgende keer beter";
+            gj.GetComponent<TMPro.TextMeshProUGUI>().text = "jij hebt verloren";
+            LooseSound.SetActive(true);
             UpdateHighscore(0);
         }
         gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ChooserScript : MonoBehaviour
 {
@@ -12,28 +13,64 @@ public class ChooserScript : MonoBehaviour
     public GameObject HATplaceholder;
     public GameObject TOPplaceholder;
     public GameObject BOOTSplaceholder;
+    private Gamepad dualSenseGamepad;
+    Vector2 InputVector;
+    bool isSticked = false;
+    private void Start()
+    {
+        foreach (var gamepad in Gamepad.all)
+        {
+            if (gamepad.name.Contains("DualSense"))
+            {
+                dualSenseGamepad = gamepad;
+                break;
+            }
+        }
 
+        if (dualSenseGamepad == null)
+        {
+            Debug.LogError("DualSense gamepad not found!");
+        }
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (dualSenseGamepad == null)
+            return;
+
+        // Get the input values from the left stick
+        Vector2 stickInput = dualSenseGamepad.leftStick.ReadValue();
+
+        // Calculate the movement vector based on the input values
+        InputVector = new Vector2(stickInput.x, stickInput.y);
+        Debug.Log(InputVector);
+
+        if (Input.GetKeyDown(KeyCode.W) || InputVector.y > 0.4f && InputVector.x < 0.5f && InputVector.x > -0.5f && !isSticked )
         {
             CheckCollision(up);
+            isSticked = true;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || InputVector.x < -0.4f && InputVector.y < 0.5f && InputVector.y > -0.5f && !isSticked)
         {
             CheckCollision(left);
+            isSticked = true;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || InputVector.y < -0.4f && InputVector.x < 0.5f && InputVector.x > -0.5f&&!isSticked)
         {
             CheckCollision(down);
+            isSticked = true;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || InputVector.x > 0.4f && InputVector.y < 0.5f && InputVector.y > -0.5f && !isSticked)
         {
             CheckCollision(right);
+            isSticked = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || dualSenseGamepad.buttonSouth.wasPressedThisFrame)
         {
             ChooseCloth();
+        }
+        if(InputVector.x > -0.05f && InputVector.x < 0.05f && InputVector.y > -0.05 && InputVector.y < 0.05)
+        {
+            isSticked= false;
         }
     }
 
@@ -82,6 +119,7 @@ public class ChooserScript : MonoBehaviour
                 ReturnCloth(HATplaceholder);
                 collider.transform.position = HATplaceholder.transform.position;
                 collider.GetComponent<DefaultVector>().choosen = true;
+                GetComponent<AudioSource>().Play();
                 break;
             }
             if (collider.gameObject.CompareTag("Top"))
@@ -90,6 +128,7 @@ public class ChooserScript : MonoBehaviour
                 ReturnCloth(TOPplaceholder);
                 collider.transform.position = TOPplaceholder.transform.position;
                 collider.GetComponent<DefaultVector>().choosen = true;
+                GetComponent<AudioSource>().Play();
                 break;
             }
             if (collider.gameObject.CompareTag("Boots"))
@@ -98,6 +137,7 @@ public class ChooserScript : MonoBehaviour
                 ReturnCloth(BOOTSplaceholder);
                 collider.transform.position = BOOTSplaceholder.transform.position;
                 collider.GetComponent<DefaultVector>().choosen = true;
+                GetComponent<AudioSource>().Play();
                 break;
             }
         }

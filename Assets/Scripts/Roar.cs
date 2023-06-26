@@ -12,13 +12,17 @@ public class Roar : MonoBehaviour
     public Image getreadyBar;
     public Image timeleftBar;
     public GameObject listenandsay;
+    public GameObject gj;
     public GameObject currentScore;
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
     public GameObject GameOverScreen;
+    public GameObject WinSound;
+    public GameObject LooseSound;
     public GameObject SpinnerPref;
     public GameObject gameoverscore;
     public GameObject gameovermessage;
+    public GameObject flowerAudio;
     public Animator Flower;
     public bool goPlayTimer = false;
     public bool won = false;
@@ -235,7 +239,9 @@ public class Roar : MonoBehaviour
             won = true;
             tooquiet.SetActive(false);
             Flower.SetBool("wokeup", true);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
+            flowerAudio.GetComponent<AudioSource>().Play();
+            yield return new WaitForSeconds(4f);
             GameOverScreen.SetActive(true);
             HealthManager();
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
@@ -246,9 +252,11 @@ public class Roar : MonoBehaviour
         }
         else
         {
+            LooseSound.SetActive(true) ;
             GameOverScreen.SetActive(true);
             HealthManager();
-            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time";
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Volgende keer beter";
+            gj.GetComponent<TMPro.TextMeshProUGUI>().text = "jij hebt verloren";
             UpdateHighscore(0);
         }
         gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");

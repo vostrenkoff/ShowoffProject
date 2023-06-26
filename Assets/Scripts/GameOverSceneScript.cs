@@ -16,6 +16,6 @@ public class GameOverSceneScript : MonoBehaviour
     }
     void UpdateHighscore(int scoreAdded)
     {
-        currentScore.GetComponent<TMPro.TextMeshProUGUI>().text = "Your current score " + PlayerPrefs.GetInt("highscore") + scoreAdded;
+        currentScore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
     }
 }

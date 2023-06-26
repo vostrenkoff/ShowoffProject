@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,9 +15,12 @@ public class ClothesGame : MonoBehaviour
     public Image getreadyBar;
     public Image timeleftBar;
     public GameObject listenandsay;
+    public GameObject gj;
     public GameObject PlayScreen;
     public GameObject GetReadyScreen;
     public GameObject GameOverScreen;
+    public GameObject WinSound;
+    public GameObject LooseSound;
     public GameObject SpinnerPref;
     public bool goPlayTimer = false;
     public bool won = false;
@@ -24,6 +28,7 @@ public class ClothesGame : MonoBehaviour
     public bool spinned = false;
     public GameObject gameoverscore;
     public GameObject gameovermessage;
+    
 
     public GameObject[] Hats;
     public GameObject[] Tops;
@@ -34,7 +39,7 @@ public class ClothesGame : MonoBehaviour
     public GameObject attachedHat;
     public GameObject attachedTop;
     public GameObject attachedBoots;
-
+    
     GameObject randomHat;
     GameObject randomTop;
     GameObject randomBoots;
@@ -48,7 +53,7 @@ public class ClothesGame : MonoBehaviour
     public GameObject score;
     public GameObject totalscore;
 
-    private float duration = 100;
+    private float duration = 10;
     private float currentDuration; // The current duration elapsed
     private float initialFillAmount = 1; // The initial fillAmount of timeleftBar
 
@@ -82,9 +87,14 @@ public class ClothesGame : MonoBehaviour
         GameObject bootsImg = GameObject.Find(randomBoots.name + "Img");
         bootsImg.GetComponent<Image>().enabled = true;
 
+        
+
     }
     void Update()
     {
+
+        
+
         if (attachedBoots != null && randomBoots != null)
         {
             if (attachedBoots.ToString() == randomBoots.ToString())
@@ -213,10 +223,12 @@ public class ClothesGame : MonoBehaviour
     }*/
     private IEnumerator gameoverScreenTimeout(bool _won)
     {
+        GetComponent<AudioSource>().enabled = false;
         GameOverScreen.SetActive(true);
         HealthManager();
         if (_won)
         {
+            WinSound.SetActive(true);
             won = true;
             PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("highscore") + calculatedScore);
             PlayerPrefs.SetFloat("multiplier", PlayerPrefs.GetFloat("multiplier") -0.05f );
@@ -225,8 +237,9 @@ public class ClothesGame : MonoBehaviour
         }
         else
         {
-            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Better luck next time";
-
+            gameovermessage.GetComponent<TMPro.TextMeshProUGUI>().text = "Volgende keer beter";
+            gj.GetComponent<TMPro.TextMeshProUGUI>().text = "jij hebt verloren";
+            LooseSound.SetActive(true);
             UpdateHighscore(0);
         }
         gameoverscore.GetComponent<TMPro.TextMeshProUGUI>().text = "" + PlayerPrefs.GetInt("highscore");
